@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>planthydra_api</RootNamespace>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
 
