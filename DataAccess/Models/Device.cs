@@ -18,7 +18,7 @@ namespace planthydra_api.DataAccess.Models
         public string Name { get; set; }
         public DeviceStatus Status { get; set; }
 
-        public List<WateringSchedule> Schedules { get; set; }
+        public List<ScheduleItem> Schedules { get; set; }
         public List<SensorData> SensorDataItems { get; set; }
 
         public List<Plant> Plants { get; set; }
@@ -26,7 +26,7 @@ namespace planthydra_api.DataAccess.Models
         public Device(string name)
         {
             this.Name = name;
-            this.Schedules = new List<WateringSchedule>();
+            this.Schedules = new List<ScheduleItem>();
             this.SensorDataItems = new List<SensorData>();
             this.Plants = new List<Plant>();
         }
