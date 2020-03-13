@@ -2,9 +2,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace planthydra_api.DataAccess.Models
+namespace planthydra_api.DataAccess.Entities
 {
-    class Plant
+    [Table("Plant")]
+    class PlantEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
@@ -25,22 +26,22 @@ namespace planthydra_api.DataAccess.Models
 
         public string DescriptionHtml { get; set; }
 
-        public List<Device> Devices { get; set; }
+        public List<DeviceEntity> Devices { get; set; }
 
-        public Image MainImage { get; set; }
+        public ImageEntity MainImage { get; set; }
 
-        public List<PlantComment> Comments { get; set; }
+        public List<CommentEntity> Comments { get; set; }
 
-        public List<Image> Images { get; set; }
+        public List<ImageEntity> Images { get; set; }
 
-        public Plant(string name, string description, Image image)
+        public PlantEntity(string name, string description, ImageEntity image)
         {
             this.Name = name;
             this.DescriptionHtml = description;
             this.MainImage = image;
-            this.Devices = new List<Device>();
-            this.Comments = new List<PlantComment>();
-            this.Images = new List<Image>();
+            this.Devices = new List<DeviceEntity>();
+            this.Comments = new List<CommentEntity>();
+            this.Images = new List<ImageEntity>();
         }
     }
 }

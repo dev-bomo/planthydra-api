@@ -2,9 +2,10 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace planthydra_api.DataAccess.Models
+namespace planthydra_api.DataAccess.Entities
 {
-    class ScheduleItem
+    [Table("ScheduleItem")]
+    class ScheduleEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
@@ -18,10 +19,10 @@ namespace planthydra_api.DataAccess.Models
 
         public string Schedule { get; set; }
 
-        public Device Device { get; set; }
+        public DeviceEntity Device { get; set; }
 
-        public ScheduleItem(int duration, DateTime startTime,
-        string schedule, Device device)
+        public ScheduleEntity(int duration, DateTime startTime,
+        string schedule, DeviceEntity device)
         {
             this.Duration = duration;
             this.StartTime = startTime;

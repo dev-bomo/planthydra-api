@@ -2,9 +2,10 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace planthydra_api.DataAccess.Models
+namespace planthydra_api.DataAccess.Entities
 {
-    class HistoryItem
+    [Table("HistoryItem")]
+    class HistoryEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
@@ -14,11 +15,11 @@ namespace planthydra_api.DataAccess.Models
 
         public DateTime StartTime { get; set; }
 
-        public Device Device { get; set; }
+        public DeviceEntity Device { get; set; }
 
-        public ScheduleItem? Schedule { get; set; }
+        public ScheduleEntity? Schedule { get; set; }
 
-        public HistoryItem(int duration, DateTime startTime, Device device)
+        public HistoryEntity(int duration, DateTime startTime, DeviceEntity device)
         {
             this.Duration = duration;
             this.StartTime = startTime;

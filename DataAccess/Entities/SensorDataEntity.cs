@@ -2,15 +2,17 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace planthydra_api.DataAccess.Models
+namespace planthydra_api.DataAccess.Entities
 {
     enum SensorDataType
     {
-        TEMPERATURE,
-        HUMIDITY,
-        LIGHT
+        TEMPERATURE = 1,
+        HUMIDITY = 2,
+        LIGHT = 3
     }
-    class SensorData
+
+    [Table("SensorData")]
+    class SensorDataEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
@@ -22,7 +24,7 @@ namespace planthydra_api.DataAccess.Models
 
         public DateTime Time { get; set; }
 
-        public SensorData(SensorDataType type, int value, DateTime time)
+        public SensorDataEntity(SensorDataType type, int value, DateTime time)
         {
             this.Type = type;
             this.Value = value;
