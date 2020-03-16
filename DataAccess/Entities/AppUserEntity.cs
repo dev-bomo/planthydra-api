@@ -23,12 +23,8 @@ namespace planthydra_api.DataAccess.Entities
 
         public List<CommentEntity> Comments { get; set; }
 
-        public AppUserEntity(IdentityUser user)
+        public AppUserEntity()
         {
-            this.User = user;
-            this.Id = user.Id;
-            this.Name = user.UserName;
-            this.Email = user.Email;
             this.Devices = new List<DeviceEntity>();
             this.Comments = new List<CommentEntity>();
         }

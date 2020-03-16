@@ -30,7 +30,8 @@ namespace planthydra_api.Model.Repositories
 
         public void Insert(IUser obj)
         {
-            AppUserEntity ue = new AppUserEntity(obj.IdentityUser);
+            AppUserEntity ue = new AppUserEntity();
+            ue.User = obj.IdentityUser;
             ue.Name = obj.Name;
             ue.Email = obj.Email;
 

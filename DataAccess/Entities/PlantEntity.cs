@@ -26,22 +26,12 @@ namespace planthydra_api.DataAccess.Entities
 
         public string DescriptionHtml { get; set; }
 
-        public List<DeviceEntity> Devices { get; set; }
-
         public ImageEntity MainImage { get; set; }
 
         public List<CommentEntity> Comments { get; set; }
 
         public List<ImageEntity> Images { get; set; }
 
-        public PlantEntity(string name, string description, ImageEntity image)
-        {
-            this.Name = name;
-            this.DescriptionHtml = description;
-            this.MainImage = image;
-            this.Devices = new List<DeviceEntity>();
-            this.Comments = new List<CommentEntity>();
-            this.Images = new List<ImageEntity>();
-        }
+        public List<DevicePlantEntity> DevicePlantRelations { get; set; }
     }
 }

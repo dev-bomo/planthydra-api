@@ -19,11 +19,5 @@ namespace planthydra_api.DataAccess.Entities
 
         public ScheduleEntity? Schedule { get; set; }
 
-        public HistoryEntity(int duration, DateTime startTime, DeviceEntity device)
-        {
-            this.Duration = duration;
-            this.StartTime = startTime;
-            this.Device = device;
-        }
     }
 }

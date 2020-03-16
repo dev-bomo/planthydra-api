@@ -14,10 +14,5 @@ namespace planthydra_api.DataAccess.Entities
 
         public string Url { get; set; }
 
-        public ImageEntity(string fileName, string url)
-        {
-            this.FileName = fileName;
-            this.Url = url;
-        }
     }
 }

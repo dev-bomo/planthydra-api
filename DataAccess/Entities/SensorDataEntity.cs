@@ -24,11 +24,5 @@ namespace planthydra_api.DataAccess.Entities
 
         public DateTime Time { get; set; }
 
-        public SensorDataEntity(SensorDataType type, int value, DateTime time)
-        {
-            this.Type = type;
-            this.Value = value;
-            this.Time = time;
-        }
     }
 }

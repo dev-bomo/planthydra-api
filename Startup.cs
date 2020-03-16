@@ -28,6 +28,7 @@ namespace planthydra_api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<Db>(options => options.UseSqlite(Configuration["SqliteConnectionString"]));
             services.AddIdentity<IdentityUser, IdentityRole>(config =>
                 {
                     config.SignIn.RequireConfirmedEmail = false;

@@ -19,11 +19,8 @@ namespace planthydra_api.DataAccess.Entities
 
         public List<ImageEntity> Pictures { get; set; }
 
-        public CommentEntity(string sinopsis, string description, PlantEntity plant)
+        public CommentEntity()
         {
-            this.Sinopsis = sinopsis;
-            this.DescriptionHtml = description;
-            this.Plant = plant;
             this.Pictures = new List<ImageEntity>();
         }
     }

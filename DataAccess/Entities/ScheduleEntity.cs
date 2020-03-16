@@ -21,13 +21,5 @@ namespace planthydra_api.DataAccess.Entities
 
         public DeviceEntity Device { get; set; }
 
-        public ScheduleEntity(int duration, DateTime startTime,
-        string schedule, DeviceEntity device)
-        {
-            this.Duration = duration;
-            this.StartTime = startTime;
-            this.Schedule = schedule;
-            this.Device = device;
-        }
     }
 }

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 namespace planthydra_api.DataAccess.Entities
 {
     [Table("User")]
-    class UserEntity : IdentityUser
+    public class UserEntity : IdentityUser
     {
     }
 }
