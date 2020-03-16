@@ -10,6 +10,5 @@ namespace planthydra_api.Model.Interfaces
         void Insert(TInterface obj);
         void Update(TInterface obj);
         void Delete(object id);
-        void Save();
     }
 }

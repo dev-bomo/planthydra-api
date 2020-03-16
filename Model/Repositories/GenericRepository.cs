@@ -38,11 +38,6 @@ namespace planthydra_api.Model.Repositories
             this._table.Add(obj);
         }
 
-        public void Save()
-        {
-            this._context.SaveChanges();
-        }
-
         public void Update(T obj)
         {
             this._table.Attach(obj);

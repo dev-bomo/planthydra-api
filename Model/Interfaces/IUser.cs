@@ -11,8 +11,8 @@ namespace planthydra_api.Model.Interfaces
 
         IdentityUser IdentityUser { get; set; }
 
-        IEnumerable<IDevice> Devices { get; set; }
+        IEnumerable<IDevice> Devices { get; }
 
-        IEnumerable<IComment> Comments { get; set; }
+        IEnumerable<IComment> Comments { get; }
     }
 }

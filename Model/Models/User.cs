@@ -9,8 +9,8 @@ namespace planthydra_api.Model.Models
         public string Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
-        public IEnumerable<IDevice> Devices { get; set; }
-        public IEnumerable<IComment> Comments { get; set; }
+        public IEnumerable<IDevice> Devices { get; private set; }
+        public IEnumerable<IComment> Comments { get; private set; }
         public IdentityUser IdentityUser { get; set; }
 
         public User(IdentityUser identityUser)

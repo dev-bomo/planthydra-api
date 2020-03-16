@@ -6,8 +6,8 @@ namespace planthydra_api.DataAccess.Entities
 {
     enum DeviceStatus
     {
-        ONLINE,
-        OFFLINE
+        ONLINE = 1,
+        OFFLINE = 2
     }
 
     [Table("Device")]
@@ -20,7 +20,7 @@ namespace planthydra_api.DataAccess.Entities
         public DeviceStatus Status { get; set; }
         public List<ScheduleEntity> Schedules { get; set; }
         public List<SensorDataEntity> SensorDataItems { get; set; }
-        public virtual List<DevicePlantEntity> DevicePlantRelations { get; set; }
+        public List<DevicePlantEntity> DevicePlantRelations { get; set; }
 
     }
 }

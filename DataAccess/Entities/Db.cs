@@ -4,8 +4,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace planthydra_api.DataAccess.Entities
 {
-#pragma warning disable CS8618
-    internal class Db : IdentityDbContext<IdentityUser>
+#pragma warning disable CS8618 // these are EF specific and are not visible outside the package
+    class Db : IdentityDbContext<IdentityUser>
     {
         public DbSet<IdentityUser> IdentityUsers { get; set; }
         public DbSet<AppUserEntity> AppUsers { get; set; }

@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using planthydra_api.DataAccess.Entities;
+using planthydra_api.Model.Repositories;
 
 namespace planthydra_api
 {
@@ -28,7 +29,7 @@ namespace planthydra_api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<Db>(options => options.UseSqlite(Configuration["SqliteConnectionString"]));
+            services.AddScoped<Repo>();
             services.AddIdentity<IdentityUser, IdentityRole>(config =>
                 {
                     config.SignIn.RequireConfirmedEmail = false;
