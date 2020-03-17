@@ -1,3 +1,4 @@
+using System;
 using planthydra_api.DataAccess.Entities;
 
 namespace planthydra_api.Model.Repositories
@@ -11,6 +12,12 @@ namespace planthydra_api.Model.Repositories
         {
             this.context = context;
             this.genericRepository = new GenericRepository<TInterface>(context);
+        }
+
+
+        public void Delete(object id)
+        {
+            this.genericRepository.Delete(id);
         }
     }
 }

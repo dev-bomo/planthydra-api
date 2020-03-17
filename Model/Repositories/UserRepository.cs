@@ -48,10 +48,5 @@ namespace planthydra_api.Model.Repositories
 
             return usr;
         }
-
-        public void Delete(object id)
-        {
-            this.genericRepository.Delete(id);
-        }
     }
 }

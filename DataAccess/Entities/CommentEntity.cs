@@ -7,6 +7,7 @@ namespace planthydra_api.DataAccess.Entities
     [Table("Comment")]
     class CommentEntity
     {
+#pragma warning disable CS8618 // these are EF specific and are not visible outside the package
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int Id { get; set; }

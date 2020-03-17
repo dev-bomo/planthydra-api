@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace planthydra_api.DataAccess.Entities
 {
+#pragma warning disable CS8618 // these are EF specific and are not visible outside the package
     /// <summary>
     /// This is the application user. It contains an Identity user that is used for auth.
     /// This structure also contains domain specific information.

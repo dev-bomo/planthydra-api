@@ -5,7 +5,7 @@ namespace planthydra_api.Model.Interfaces
 {
     public interface IUser
     {
-        string Id { get; set; }
+        string Id { get; }
         string Name { get; set; }
         string Email { get; set; }
 

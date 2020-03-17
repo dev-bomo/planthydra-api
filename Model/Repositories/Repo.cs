@@ -13,6 +13,10 @@ namespace planthydra_api.Model.Repositories
         private Db _context;
         public IUserRepository User { get; private set; }
         public IDeviceRepository Device { get; private set; }
+        public ISensorDataRepository SensorData
+        {
+            get; private set;
+        }
         public Repo(IConfiguration configuration)
         {
             DbContextOptionsBuilder<Db> db = new DbContextOptionsBuilder<Db>();
@@ -21,6 +25,7 @@ namespace planthydra_api.Model.Repositories
 
             this.User = new UserRepository(_context);
             this.Device = new DeviceRepository(_context);
+            this.SensorData = new SensorDataRepository(_context);
         }
 
         public void Dispose()

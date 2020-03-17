@@ -5,15 +5,16 @@ namespace planthydra_api.Model.Models
 {
     class Device : IDevice
     {
-        public int Id { get; set; }
+        public int Id { get; private set; }
         public string Name { get; set; }
         public DeviceStatus Status { get; set; }
         public IEnumerable<ISchedule> Schedules { get; private set; }
         public IEnumerable<ISensorData> SensorDataItems { get; private set; }
         public IEnumerable<IPlant> Plants { get; private set; }
 
-        public Device(string name)
+        public Device(int id, string name)
         {
+            this.Id = id;
             this.Name = name;
             this.Schedules = new List<ISchedule>();
             this.SensorDataItems = new List<ISensorData>();

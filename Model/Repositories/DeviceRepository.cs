@@ -16,22 +16,17 @@ namespace planthydra_api.Model.Repositories
 
         }
 
-        public void Delete(object id)
-        {
-            this.genericRepository.Delete(id);
-        }
-
         public async Task<IEnumerable<IDevice>> GetAll()
         {
             IEnumerable<DeviceEntity> des = await this.genericRepository.GetAll();
-            IEnumerable<IDevice> devices = des.Select<DeviceEntity, IDevice>(de => new Device(de.Name));
+            IEnumerable<IDevice> devices = des.Select<DeviceEntity, IDevice>(de => new Device(de.Id, de.Name));
             return devices;
         }
 
         public async Task<IDevice> GetById(object id)
         {
             DeviceEntity de = await this.genericRepository.GetById(id);
-            Device dev = new Device(de.Name);
+            Device dev = new Device(de.Id, de.Name);
             return dev;
         }
 
@@ -39,9 +34,7 @@ namespace planthydra_api.Model.Repositories
         {
             DeviceEntity de = new DeviceEntity();
             de.Name = obj.Name;
-            de.Status = obj.Status == Interfaces.DeviceStatus.ONLINE
-                ? DataAccess.Entities.DeviceStatus.ONLINE
-                : DataAccess.Entities.DeviceStatus.OFFLINE;
+            de.Status = (int)obj.Status;
 
             this.genericRepository.Insert(de);
         }

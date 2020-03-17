@@ -6,7 +6,7 @@ namespace planthydra_api.Model.Models
 {
     class User : IUser
     {
-        public string Id { get; set; }
+        public string Id { get; private set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public IEnumerable<IDevice> Devices { get; private set; }

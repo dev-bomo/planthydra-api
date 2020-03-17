@@ -4,13 +4,13 @@ namespace planthydra_api.Model.Interfaces
 {
     public enum DeviceStatus
     {
-        ONLINE,
-        OFFLINE
+        OFFLINE = 0,
+        ONLINE = 1
     }
 
     public interface IDevice
     {
-        int Id { get; set; }
+        int Id { get; }
         string Name { get; set; }
         DeviceStatus Status { get; set; }
         IEnumerable<ISchedule> Schedules { get; }
