@@ -16,7 +16,11 @@ namespace planthydra_api.DataAccess.Entities
 
         public DateTime StartTime { get; set; }
 
+        public int DeviceId { get; set; }
+
         public DeviceEntity Device { get; set; }
+
+        public int ScheduleId { get; set; }
 
         public ScheduleEntity? Schedule { get; set; }
 

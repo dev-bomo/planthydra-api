@@ -16,6 +16,8 @@ namespace planthydra_api.DataAccess.Entities
 
         public string DescriptionHtml { get; set; }
 
+        public int PlantId { get; set; }
+
         public PlantEntity Plant { get; set; }
 
         public List<ImageEntity> Pictures { get; set; }

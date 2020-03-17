@@ -18,7 +18,7 @@ namespace planthydra_api.Model.Repositories
         public async Task<IEnumerable<ISchedule>> GetAll()
         {
             IEnumerable<ScheduleEntity> ses = await this.genericRepository.GetAll();
-            IEnumerable<ISchedule> schedules = ses.Select(se => new Schedule(se.Id, se.Duration, se.IsEnabled, se.StartTime, se.DeviceId, se.Weekdays));
+            IEnumerable<ISchedule> schedules = ses.Select<ScheduleEntity, ISchedule>(se => new Schedule(se.Id, se.Duration, se.IsEnabled, se.StartTime, se.DeviceId, se.Weekdays));
 
             return schedules;
         }
