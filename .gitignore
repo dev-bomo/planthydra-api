@@ -4,3 +4,5 @@ obj
 .DS_Store
 Migrations/**
 serviceStorage.db
+appsettings.json
+appsettings.Development.json
