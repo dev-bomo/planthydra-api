@@ -6,7 +6,7 @@ using planthydra_api.Model.Interfaces;
 
 namespace planthydra_api.Model.Repositories
 {
-    public class Repo : IDisposable
+    class Repo : IRepo, IDisposable
     {
         private Db _context;
         public IUserRepository User { get; private set; }
@@ -15,11 +15,9 @@ namespace planthydra_api.Model.Repositories
         public IScheduleRepository Schedule { get; private set; }
         public ICommentRepository Comment { get; private set; }
         public IImageRepository Image { get; private set; }
-        public Repo(IConfiguration configuration)
+        public Repo(Db context)
         {
-            DbContextOptionsBuilder<Db> db = new DbContextOptionsBuilder<Db>();
-            db.UseSqlite(configuration["SqliteConnectionString"]);
-            _context = new Db(db.Options);
+            _context = context;
 
             this.User = new UserRepository(_context);
             this.Device = new DeviceRepository(_context);
