@@ -27,6 +27,7 @@ namespace planthydra_api
         {
             services.AddDataServices(Environment);
             services.AddAuthServices(Environment);
+            services.AddMvcCore();
             services.AddControllers();
         }
 

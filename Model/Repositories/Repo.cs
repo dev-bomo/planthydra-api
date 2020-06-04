@@ -15,6 +15,10 @@ namespace planthydra_api.Model.Repositories
         public IScheduleRepository Schedule { get; private set; }
         public ICommentRepository Comment { get; private set; }
         public IImageRepository Image { get; private set; }
+
+        // This should probably be part of some identity subrepo
+        public IUserRoleRepository UserRole { get; private set; }
+
         public Repo(Db context)
         {
             _context = context;
@@ -25,6 +29,7 @@ namespace planthydra_api.Model.Repositories
             this.Schedule = new ScheduleRepository(_context);
             this.Comment = new CommentRepository(_context);
             this.Image = new ImageRepository(_context);
+            this.UserRole = new UserRoleRepository(_context);
         }
 
         public void Dispose()

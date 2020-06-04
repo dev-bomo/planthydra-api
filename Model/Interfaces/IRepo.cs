@@ -8,5 +8,8 @@ namespace planthydra_api.Model.Interfaces
         IScheduleRepository Schedule { get; }
         ICommentRepository Comment { get; }
         IImageRepository Image { get; }
+        IUserRoleRepository UserRole { get; }
+        void Dispose();
+        void Save();
     }
 }

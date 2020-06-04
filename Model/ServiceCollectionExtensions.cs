@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using planthydra_api.DataAccess.Entities;
+using planthydra_api.Model.Interfaces;
 using planthydra_api.Model.Repositories;
 
 namespace planthydra_api.Model
@@ -15,7 +16,7 @@ namespace planthydra_api.Model
         public static void AddDataServices(this IServiceCollection services, IHostEnvironment environment)
         {
             services.AddDbContext<Db>(options => options.UseSqlite(environment.GetSqlConnectionString()));
-            services.AddScoped<Repo>();
+            services.AddScoped<IRepo, Repo>();
         }
     }
 }

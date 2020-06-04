@@ -13,6 +13,7 @@ namespace planthydra_api.DataAccess.Entities
     [Table("AppUser")]
     class AppUserEntity
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public string Id { get; set; }
         public string Name { get; set; }

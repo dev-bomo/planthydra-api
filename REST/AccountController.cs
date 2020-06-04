@@ -3,6 +3,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using planthydra_api.BusinessLogic.Common;
+using planthydra_api.BusinessLogic.UserManagement;
+using planthydra_api.Model.Interfaces;
 using planthydra_api.REST.DTO;
 
 namespace planthydra_api.REST
@@ -15,6 +18,15 @@ namespace planthydra_api.REST
     [Route("api/[controller]/[action]")]
     public class AccountController : ControllerBase
     {
+        private IUserAuthManager _userAuthManager;
+        private ITokenGenerator _tokenGenerator;
+
+        public AccountController(IUserAuthManager uam, ITokenGenerator tokenGenerator)
+        {
+            _userAuthManager = uam;
+            _tokenGenerator = tokenGenerator;
+        }
+
         /// <summary>
         /// Logs in the user based on an email and a password
         /// </summary>
@@ -51,7 +63,17 @@ namespace planthydra_api.REST
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<LoginResponse>> Register([FromBody] LoginDto register)
         {
-            throw new NotImplementedException();
+            ActivityResult<IUser> result =
+                await _userAuthManager.RegisterAndCreateUser(register.Name, register.Email, register.Password);
+            if (result.Success)
+            {
+                string jwtToken = this._tokenGenerator.GenerateTokensForNewUser(result.Payload);
+                return Ok(new LoginResponse { JWTToken = jwtToken });
+            }
+            else
+            {
+                return BadRequest(result.Errors);
+            }
         }
 
         /// <summary>

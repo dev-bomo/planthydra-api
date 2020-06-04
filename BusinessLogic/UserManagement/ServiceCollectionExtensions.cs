@@ -49,7 +49,9 @@ namespace planthydra_api.BusinessLogic.UserManagement
                 {
                     facebookOptions.AppId = environment.GetFbAppId();
                     facebookOptions.AppSecret = environment.GetFbSecret();
-                }); ;
+                });
+            services.AddScoped<IUserAuthManager, UserAuthManager>();
+            services.AddScoped<ITokenGenerator, TokenGenerator>();
         }
     }
 }
